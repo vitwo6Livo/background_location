@@ -18,9 +18,14 @@ class BackgroundLocation {
   }
 
   /// Start receiving location updated
-  static startLocationService({double distanceFilter = 0.0, bool forceAndroidLocationManager = false}) async {
-    return await _channel.invokeMethod('start_location_service',
-        <String, dynamic>{'distance_filter': distanceFilter, 'force_location_manager': forceAndroidLocationManager});
+  static startLocationService(
+      {double distanceFilter = 0.0,
+      bool forceAndroidLocationManager = false}) async {
+    return await _channel
+        .invokeMethod('start_location_service', <String, dynamic>{
+      'distance_filter': distanceFilter,
+      'force_location_manager': forceAndroidLocationManager
+    });
   }
 
   static setAndroidNotification(
@@ -62,8 +67,6 @@ class BackgroundLocation {
     return completer.future;
   }
 
-
-
   /// Register a function to recive location updates as long as the location
   /// service has started
   static getLocationUpdates(Function(Location) location) {
@@ -86,6 +89,8 @@ class BackgroundLocation {
       }
     });
   }
+
+  getPlatformVersion() {}
 }
 
 /// about the user current location

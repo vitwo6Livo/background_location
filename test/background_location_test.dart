@@ -25,6 +25,6 @@ void main() {
         MockBackgroundLocationPlatform();
     BackgroundLocationPlatform.instance = fakePlatform;
 
-    // expect(await backgroundLocationPlugin.getPlatformVersion(), '42');
+    expect(await backgroundLocationPlugin.getPlatformVersion(), '42');
   });
 }
